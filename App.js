@@ -17,6 +17,7 @@ export default class App extends React.Component {
     convertionTable: {
       "EUR": 0.0128668665,
       "USD": 0.0144559245,
+      "HKD": 0.114559245,
     }
   }
 
@@ -39,6 +40,7 @@ export default class App extends React.Component {
     inr = inr.toFixed(2)
     const usdStyle = { backgroundColor: (sourceCurrency === "USD") ? "#4A90E2" : "#D5D5D6" }
     const eurStyle = { backgroundColor: (sourceCurrency === "EUR") ? "#4A90E2" : "#D5D5D6" }
+    const eurStyle = { backgroundColor: (sourceCurrency === "HKD") ? "#4A90E2" : "#D5D5D6" }
     return (
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={styles.container}>
@@ -51,6 +53,11 @@ export default class App extends React.Component {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.setState({ sourceCurrency: "EUR" })}
+              style={[styles.btnRight, eurStyle]}>
+              <Text style={styles.btnText}>€</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({ sourceCurrency: "HKD" })}
               style={[styles.btnRight, eurStyle]}>
               <Text style={styles.btnText}>€</Text>
             </TouchableOpacity>
